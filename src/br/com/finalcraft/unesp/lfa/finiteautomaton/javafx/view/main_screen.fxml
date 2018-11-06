@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="487.0" prefWidth="826.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller.MainController">
+   <top>
+      <ToolBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="534.0" BorderPane.alignment="CENTER">
+        <items>
+          <Button fx:id="addStateButton" mnemonicParsing="false" onAction="#onAddState" text="Adicionar Estado" />
+            <RadioButton fx:id="editStates" mnemonicParsing="false" onAction="#onStateChange" selected="true" text="Criar/Mover Estados">
+               <toggleGroup>
+                  <ToggleGroup fx:id="mainmenu" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="editTransactions" mnemonicParsing="false" onAction="#onStateChange" prefHeight="17.0" prefWidth="330.0" text="Editar Transições" toggleGroup="$mainmenu" />
+            <Button layoutX="10.0" layoutY="13.0" mnemonicParsing="false" onAction="#onTestarAutomato" text="Testar Automato" textFill="#6a8317" />
+            <MenuButton mnemonicParsing="false" text="Outros Programas" textFill="#3787cc">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#openGramar" text="Gramatica" />
+                  <MenuItem mnemonicParsing="false" onAction="#openRegex" text="Regex" />
+              </items>
+            </MenuButton>
+        </items>
+      </ToolBar>
+   </top>
+</BorderPane>

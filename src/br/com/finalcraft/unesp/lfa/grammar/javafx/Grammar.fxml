@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.finalcraft.unesp.lfa.grammar.javafx.GrammarController">
+    <children>
+        <Pane prefHeight="625.0" prefWidth="442.0" GridPane.rowIndex="1">
+            <children>
+                <Label layoutX="163.0" layoutY="34.0" text="Grammar Tool v1.0.2a" />
+                <TextField fx:id="leftTextField" layoutX="36.0" layoutY="100.0" prefHeight="25.0" prefWidth="57.0" />
+                <TextField fx:id="rightTextField" layoutX="128.0" layoutY="100.0" prefHeight="25.0" prefWidth="277.0" />
+                <Label layoutX="98.0" layoutY="92.0" prefHeight="40.0" prefWidth="30.0" text="➜">
+                    <font>
+                        <Font size="28.0" />
+                    </font></Label>
+                <Label layoutX="38.0" layoutY="64.0" prefHeight="17.0" prefWidth="306.0" text="Insira a expressão aqui!">
+                    <font>
+                        <Font size="14.0" />
+                    </font></Label>
+                <Button layoutX="36.0" layoutY="144.0" mnemonicParsing="false" onAction="#onAddTermButton" prefHeight="25.0" prefWidth="367.0" text="Adicionar Expressão" />
+                <Label fx:id="actionResult" alignment="CENTER" layoutX="37.0" layoutY="176.0" prefHeight="17.0" prefWidth="367.0" text="..." />
+            <TableView fx:id="tableOfValues" editable="true" layoutX="36.0" layoutY="205.0" prefHeight="200.0" prefWidth="367.0">
+              <columns>
+                <TableColumn fx:id="leftColumn" prefWidth="75.0" text="LHS" />
+                <TableColumn fx:id="rightColumn" prefWidth="290.0" text="RHS" />
+              </columns>
+            </TableView>
+            <Button layoutX="36.0" layoutY="409.0" mnemonicParsing="false" onAction="#onRemoveTermButton" prefHeight="25.0" prefWidth="367.0" text="Apagar Expressão Selecionada" />
+            <TextField fx:id="validateTextField" layoutX="84.0" layoutY="490.0" prefHeight="25.0" prefWidth="277.0" />
+            <Button layoutX="124.0" layoutY="524.0" mnemonicParsing="false" onAction="#onValidadeButton" text="Validar Texto Segundo Gramática" />
+            <Label fx:id="actionValidator" alignment="CENTER" layoutX="43.0" layoutY="549.0" prefHeight="17.0" prefWidth="359.0" text="...." textAlignment="CENTER" />
+            <Label alignment="CENTER" layoutX="39.0" layoutY="473.0" prefHeight="17.0" prefWidth="367.0" text="▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬" />
+            <Button layoutX="15.0" layoutY="566.0" mnemonicParsing="false" onAction="#onConvertAfToGrammar" prefHeight="25.0" prefWidth="414.0" text="&gt;&gt; Converter De AF para Gramatica &gt;&gt;" textFill="#8bb517" />
+            <Button layoutX="15.0" layoutY="591.0" mnemonicParsing="false" onAction="#onConvertGrammarToAf" prefHeight="25.0" prefWidth="414.0" text="&lt;&lt; Converter De Gramatica para AF &lt;&lt;" textFill="#4271c3" />
+            <Button layoutX="150.0" layoutY="441.0" mnemonicParsing="false" onAction="#onApagarTodaGramatica" prefHeight="25.0" prefWidth="146.0" text="Apagar Toda Gramática" textFill="#6b0606" />
+            </children>
+        </Pane>
+    </children>
+    <columnConstraints>
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+        <RowConstraints />
+    </rowConstraints>
+</GridPane>

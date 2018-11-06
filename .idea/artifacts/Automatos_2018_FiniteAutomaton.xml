@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="Automatos_2018_FiniteAutomaton">
+    <output-path>$PROJECT_DIR$/out/artifacts/Automatos_2018_FiniteAutomaton</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller.Main" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="Automatos_2018_FiniteAutomaton.jar">
+        <element id="module-output" name="Automatos_2018_FiniteAutomaton" />
+      </element>
+    </root>
+  </artifact>
+</component>
