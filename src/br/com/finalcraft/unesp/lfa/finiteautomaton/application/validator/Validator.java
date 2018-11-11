@@ -51,6 +51,9 @@ public class Validator {
                 System.out.println("   q" + vertice.id + " --> q" + aresta.targetId + " == " + aresta.getGramarsString() );
             });
         });
+
+        System.out.println("\n\n");
+
     }
 
 
@@ -141,7 +144,17 @@ public class Validator {
     public static List<Vertice> getFutureVertices(Vertice vertice){
         List<Vertice> verticeList = new ArrayList<Vertice>();
         for (Aresta aresta : vertice.arestasList){
-            verticeList.add(getVerticeFromID(aresta.sourceId));
+            verticeList.add(getVerticeFromID(aresta.targetId));
+        }
+        return verticeList;
+    }
+
+    public static List<Vertice> getFutureNonSelfVertices(Vertice vertice){
+        List<Vertice> verticeList = new ArrayList<Vertice>();
+        for (Vertice aFutureVertice : getFutureVertices(vertice)){
+            if (vertice != aFutureVertice){
+                verticeList.add(aFutureVertice);
+            }
         }
         return verticeList;
     }
@@ -154,5 +167,17 @@ public class Validator {
         }
         return null;
     }
+
+    public static Aresta getArestaBetween(int sourceId, int targetId){
+        for (Aresta aresta : todasAsArestas){
+            if (aresta.sourceId == sourceId && aresta.targetId == targetId){
+                return aresta;
+            }
+        }
+        return null;
+    }
+
+
+
 
 }

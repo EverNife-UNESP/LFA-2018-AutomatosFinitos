@@ -12,7 +12,7 @@
    <children>
       <Pane prefHeight="388.0" prefWidth="494.0">
          <children>
-            <Label layoutX="198.0" layoutY="27.0" text="Regex Tool v1.0.1a" />
+            <Label layoutX="198.0" layoutY="27.0" text="Regex Tool v1.0.2a" />
             <TextField fx:id="insertRegex" layoutX="37.0" layoutY="114.0" prefHeight="25.0" prefWidth="420.0" />
             <TextField fx:id="insertText" layoutX="37.0" layoutY="192.0" prefHeight="25.0" prefWidth="420.0" />
             <Label layoutX="37.0" layoutY="97.0" text="Insira o codigo regex aqui!    Por exemplo:   ^(a|b)*b$" />

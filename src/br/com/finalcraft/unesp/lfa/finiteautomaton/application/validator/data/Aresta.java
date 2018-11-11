@@ -49,4 +49,8 @@ public class Aresta {
     public boolean isValid() {
         return grammars.size() > 0;
     }
+
+    public String getIdentifier(){
+        return "q" + sourceId + " --> q" + targetId;
+    }
 }

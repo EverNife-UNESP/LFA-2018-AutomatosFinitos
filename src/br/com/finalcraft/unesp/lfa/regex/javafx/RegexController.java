@@ -1,6 +1,9 @@
 package br.com.finalcraft.unesp.lfa.regex.javafx;
 
 import br.com.finalcraft.unesp.lfa.finiteautomaton.application.validator.Validator;
+import br.com.finalcraft.unesp.lfa.finiteautomaton.application.validator.data.Aresta;
+import br.com.finalcraft.unesp.lfa.finiteautomaton.application.validator.data.Vertice;
+import br.com.finalcraft.unesp.lfa.finiteautomaton.desenho.Vertex;
 import br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller.Main;
 import br.com.finalcraft.unesp.lfa.regex.application.MyRegex;
 import javafx.concurrent.Task;
@@ -18,7 +21,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class RegexController implements Initializable {
 
@@ -73,7 +76,7 @@ public class RegexController implements Initializable {
         String regex = insertRegex.getText();
         String expression = insertText.getText();
 
-        if (expression.isEmpty() || regex.isEmpty()){
+        if (regex.isEmpty()){
             return;
         }
 
@@ -113,11 +116,129 @@ public class RegexController implements Initializable {
     @FXML
     void onConvertAfToRegex(ActionEvent event) {
         Validator.loadGraph();
-        
+
+        boolean noStart = true;
+        boolean noEnd = true;
+
+        Vertice initial = null;
+        List<Vertice> allFinals = new ArrayList<Vertice>();
+
+        for (Vertice vertice : Validator.todosOsVertices){
+            if(vertice.isInitial()){
+                initial = vertice;
+                noStart = false;
+            }
+            if (vertice.isFinale()){
+                allFinals.add(vertice);
+                noEnd = false;
+            }
+        }
+
+        if ( noStart || noEnd ){  //Caso não tenha inicio ou fim, então, pode colocar uma regra vazia e ta tudo certo!
+            insertRegex.setText("^\\b$\n");
+            return;
+        }
+
+        Map<String,String> mapOfallRegexRulles = new HashMap<String, String>();
+        for (Aresta aresta : Validator.todasAsArestas){
+            String arestaRegex = mountTheRegexFrom(aresta);
+            mapOfallRegexRulles.put(aresta.getIdentifier(),arestaRegex);
+            System.out.println(aresta.getIdentifier() + " === " + arestaRegex);
+        }
+
+
+
+        List<String> finalRegexRules = new ArrayList<>();
+        for (Vertice finalVertice : allFinals){
+
+            List<Vertice> pathOfArestas = mountThePathBetween(initial,finalVertice);
+
+            StringBuilder regexRule = new StringBuilder();
+            for (int  i = 0; i < pathOfArestas.size() -1 ; i++){
+
+                Aresta selfAresta = Validator.getArestaBetween(pathOfArestas.get(i).id,pathOfArestas.get(i).id);
+                Aresta nextAresta = Validator.getArestaBetween(pathOfArestas.get(i).id,pathOfArestas.get(i+1).id);
+
+                if (selfAresta != null){
+                    regexRule.append(mapOfallRegexRulles.getOrDefault(selfAresta.getIdentifier(),""));
+                }
+                regexRule.append(mapOfallRegexRulles.getOrDefault(nextAresta.getIdentifier(),""));
+            }
+
+            String finalRule = regexRule.toString();
+            if (!finalRule.isEmpty()){
+                finalRegexRules.add(finalRule);
+                System.out.println("Path Between " + initial.getId() + " and " + finalVertice.getId() + " has th regex == "  + finalRule);
+            }
+        }
+
+
+        StringBuilder theNewRegexCommand  = new StringBuilder();
+        for (String finalRule : finalRegexRules){
+            theNewRegexCommand.append("^" + finalRule + "$|");
+        }
+        theNewRegexCommand.setLength(theNewRegexCommand.length() - 1);
+        insertRegex.setText(theNewRegexCommand.toString().replaceAll("ε",""));
     }
 
     @FXML
     void onConvertRegexToAf(ActionEvent event) {
 
+    }
+
+
+
+    private static String mountTheRegexFrom(Aresta aresta){
+        boolean isCyclic = aresta.getTargetId() == aresta.getSourceId();
+
+        StringBuilder stringBuilder = new StringBuilder("(");
+        for (char value : aresta.getGrammars()){
+            stringBuilder.append(value + "|");
+        }
+        stringBuilder.setLength(stringBuilder.length() - 1);
+        stringBuilder.append(")");
+        if (isCyclic) stringBuilder.append("*");
+        return stringBuilder.toString();
+    }
+
+
+
+    private static List<Vertice> mountThePathBetween(Vertice initial, Vertice finale){
+
+        List<Vertice> path = new ArrayList<>();
+
+        boolean foundFinal = false;
+
+        Vertice currentVertice = initial;
+        List<Integer> lookedVertices = new ArrayList<>();
+        System.out.println("\n\n");
+        while (true){
+
+            if (lookedVertices.contains(currentVertice.id)){
+                break;
+            }
+
+            path.add(currentVertice);
+            lookedVertices.add(currentVertice.id);
+
+            if (currentVertice == finale){
+                foundFinal = true;
+                break;
+            }
+
+            List<Vertice> futureVertices = Validator.getFutureNonSelfVertices(currentVertice);
+
+            if (futureVertices.isEmpty()){
+                break;
+            }
+
+            Vertice nextVertice = futureVertices.get(0);
+            currentVertice = nextVertice;
+        }
+
+        if (foundFinal){
+            return path;
+        }
+        return new ArrayList<>();
     }
 }
