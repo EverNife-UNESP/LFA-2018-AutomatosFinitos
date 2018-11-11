@@ -5,10 +5,10 @@
 package br.com.finalcraft.unesp.lfa.finiteautomaton.desenho;
 
 import br.com.finalcraft.unesp.lfa.finiteautomaton.application.FiniteAutomationApplication;
-import br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller.transitions.AddTransitionController;
+import br.com.finalcraft.unesp.lfa.finiteautomaton.desenho.temp.TempEdge;
 import br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller.MainController;
 import br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller.states.StateEditorController;
-import br.com.finalcraft.unesp.lfa.finiteautomaton.desenho.temp.TempEdge;
+import br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller.transitions.AddTransitionController;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.input.MouseButton;

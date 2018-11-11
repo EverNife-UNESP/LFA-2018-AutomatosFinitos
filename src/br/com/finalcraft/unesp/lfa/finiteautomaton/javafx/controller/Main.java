@@ -17,10 +17,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class Main extends Application {
 
     public static Stage thePrimaryStage;

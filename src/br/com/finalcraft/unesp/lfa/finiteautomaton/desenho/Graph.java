@@ -1,8 +1,8 @@
 package br.com.finalcraft.unesp.lfa.finiteautomaton.desenho;
 
 import br.com.finalcraft.unesp.lfa.finiteautomaton.application.FiniteAutomationApplication;
-import br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller.Main;
 import br.com.finalcraft.unesp.lfa.finiteautomaton.desenho.temp.TempEdge;
+import br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller.Main;
 import javafx.scene.Group;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;

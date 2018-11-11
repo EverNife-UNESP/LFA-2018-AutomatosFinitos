@@ -4,9 +4,8 @@ import br.com.finalcraft.unesp.lfa.finiteautomaton.application.FiniteAutomationA
 import br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller.tester.FiniteAutomationTesterController;
 import br.com.finalcraft.unesp.lfa.grammar.javafx.GrammarController;
 import br.com.finalcraft.unesp.lfa.regex.javafx.RegexController;
-import javafx.fxml.FXML;
-
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.RadioButton;

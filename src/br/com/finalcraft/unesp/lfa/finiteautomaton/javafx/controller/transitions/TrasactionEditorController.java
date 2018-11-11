@@ -1,12 +1,14 @@
 package br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller.transitions;
 
+import br.com.finalcraft.unesp.lfa.finiteautomaton.desenho.Edge;
 import br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller.Main;
 import br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.view.MyFXMLs;
-import br.com.finalcraft.unesp.lfa.finiteautomaton.desenho.Edge;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 

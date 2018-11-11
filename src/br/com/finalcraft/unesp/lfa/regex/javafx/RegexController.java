@@ -1,5 +1,6 @@
 package br.com.finalcraft.unesp.lfa.regex.javafx;
 
+import br.com.finalcraft.unesp.lfa.finiteautomaton.application.validator.Validator;
 import br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller.Main;
 import br.com.finalcraft.unesp.lfa.regex.application.MyRegex;
 import javafx.concurrent.Task;
@@ -103,18 +104,20 @@ public class RegexController implements Initializable {
     }
 
 
-
-    /**
-     * Called to initialize a controller after its root element has been
-     * completely processed.
-     *
-     * @param location  The location used to resolve relative paths for the root object, or
-     *                  <tt>null</tt> if the location is not known.
-     * @param resources The resources used to localize the root object, or <tt>null</tt> if
-     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
 
+
+    @FXML
+    void onConvertAfToRegex(ActionEvent event) {
+        Validator.loadGraph();
+        
+    }
+
+    @FXML
+    void onConvertRegexToAf(ActionEvent event) {
+
+    }
 }

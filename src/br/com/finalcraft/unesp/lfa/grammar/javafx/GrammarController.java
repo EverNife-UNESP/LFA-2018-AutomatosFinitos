@@ -229,7 +229,6 @@ public class GrammarController {
 
     @FXML
     private void onConvertAfToGrammar(ActionEvent event) {
-        System.out.println("onConvertAfToGrammar");
         Validator.loadGraph();
         GrammarExpression.getAllExpressions().clear();
 

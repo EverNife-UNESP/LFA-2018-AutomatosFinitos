@@ -2,10 +2,10 @@ package br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller.transition
 
 import br.com.finalcraft.unesp.lfa.finiteautomaton.application.FiniteAutomationApplication;
 import br.com.finalcraft.unesp.lfa.finiteautomaton.application.validator.data.Aresta;
-import br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller.Main;
-import br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.view.MyFXMLs;
 import br.com.finalcraft.unesp.lfa.finiteautomaton.desenho.Edge;
 import br.com.finalcraft.unesp.lfa.finiteautomaton.desenho.Vertex;
+import br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller.Main;
+import br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.view.MyFXMLs;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
