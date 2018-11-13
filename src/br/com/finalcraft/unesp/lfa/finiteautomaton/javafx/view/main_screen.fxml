@@ -17,8 +17,14 @@
                <toggleGroup>
                   <ToggleGroup fx:id="mainmenu" />
                </toggleGroup></RadioButton>
-            <RadioButton fx:id="editTransactions" mnemonicParsing="false" onAction="#onStateChange" prefHeight="17.0" prefWidth="330.0" text="Editar Transições" toggleGroup="$mainmenu" />
+            <RadioButton fx:id="editTransactions" mnemonicParsing="false" onAction="#onStateChange" prefHeight="17.0" prefWidth="234.0" text="Editar Transições" toggleGroup="$mainmenu" />
             <Button layoutX="10.0" layoutY="13.0" mnemonicParsing="false" onAction="#onTestarAutomato" text="Testar Automato" textFill="#6a8317" />
+            <MenuButton layoutX="695.0" layoutY="13.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Arquivo" textFill="#b637cc">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#openSaver" text="Exportar" />
+                  <MenuItem mnemonicParsing="false" onAction="#openImporter" text="Importar" />
+               </items>
+            </MenuButton>
             <MenuButton mnemonicParsing="false" text="Outros Programas" textFill="#3787cc">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#openGramar" text="Gramatica" />

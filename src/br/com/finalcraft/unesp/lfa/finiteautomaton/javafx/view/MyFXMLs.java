@@ -7,6 +7,7 @@ public class MyFXMLs {
 
     public static Parent main_screen;
     public static Parent state_editor;
+
     @Deprecated
     public static Parent transition_editor;
 
@@ -15,6 +16,9 @@ public class MyFXMLs {
     public static Parent edit_transition_sideonly;
 
     public static Parent finiteautomation_tester;
+
+    public static Parent save_to_file;
+
 
 
     static {
@@ -26,6 +30,7 @@ public class MyFXMLs {
             add_transition = FXMLLoader.load(MyFXMLs.class.getResource("/br/com/finalcraft/unesp/lfa/finiteautomaton/javafx/view/add_transition.fxml"));
             edit_transition_sideonly = FXMLLoader.load(MyFXMLs.class.getResource("/br/com/finalcraft/unesp/lfa/finiteautomaton/javafx/view/sideonly_edit_transition.fxml"));
             finiteautomation_tester = FXMLLoader.load(MyFXMLs.class.getResource("/br/com/finalcraft/unesp/lfa/finiteautomaton/javafx/view/finiteautomation_tester.fxml"));
+            save_to_file = FXMLLoader.load(MyFXMLs.class.getResource("/br/com/finalcraft/unesp/lfa/finiteautomaton/javafx/view/save_to_file.fxml"));
         }catch (Exception e){
             e.printStackTrace();
         }

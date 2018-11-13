@@ -26,6 +26,7 @@ public class Vertice {
     }
 
     public void extractOwnVertices(List<Aresta> allArestas){
+        this.arestasList.clear();
         for (Aresta aresta : allArestas){
             if (aresta.getSourceId() == this.id){
                 this.arestasList.add(aresta);

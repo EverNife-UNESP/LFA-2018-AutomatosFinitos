@@ -266,6 +266,9 @@ public class GrammarController {
     @FXML
     private void onConvertGrammarToAf(ActionEvent event) {
         FiniteAutomationApplication.clear();
+
+        if ( GrammarExpression.getAllExpressions().isEmpty() ) return;
+
         GrammarValidator.optimizeUnreachableGrammars();
 
         List<String> leftTerms = new ArrayList<String>();

@@ -1,5 +1,6 @@
 package br.com.finalcraft.unesp.lfa.finiteautomaton.application.validator;
 
+import br.com.finalcraft.unesp.lfa.DEBUGGER;
 import br.com.finalcraft.unesp.lfa.finiteautomaton.application.FiniteAutomationApplication;
 import br.com.finalcraft.unesp.lfa.finiteautomaton.application.validator.data.Aresta;
 import br.com.finalcraft.unesp.lfa.finiteautomaton.application.validator.data.Vertice;
@@ -138,6 +139,67 @@ public class Validator {
         }
 
         return previousLog;
+    }
+
+
+    public static void removerArestasNulas(){
+
+
+        boolean atLeastOneIsNull;
+        do {
+            boolean doubleBreak = false;
+            Vertice sourceVertice = null;
+            Vertice targetVertice = null;
+
+            atLeastOneIsNull = false;
+            for (Vertice vertice : todosOsVertices){
+                doubleBreak = false;
+                sourceVertice = null;
+                targetVertice = null;
+
+                for (Aresta aresta : vertice.getArestasList()){
+                    if (aresta.getSourceId() == aresta.getTargetId()) continue; // Ignora caso seja uma aresta apontando para o próprio vertice!
+
+                    if (aresta.getGrammars().contains('ε')){
+                        aresta.getGrammars().removeIf(character -> character.equals('ε'));
+                        sourceVertice = getVerticeFromID(aresta.getSourceId());
+                        targetVertice = getVerticeFromID(aresta.getTargetId());
+
+                        DEBUGGER.info("DoubleBreak on " + sourceVertice.getId() + " to " + targetVertice.getId());
+                        doubleBreak = true;
+                        break;
+                    }
+                }
+
+                if (doubleBreak && sourceVertice != null && targetVertice != null){
+                    sourceVertice.getArestasList().addAll(targetVertice.getArestasList());
+                    atLeastOneIsNull = true;
+                    break;
+                }
+            }
+
+            if (doubleBreak){
+                todosOsVertices.remove(targetVertice);
+                for (int i = todasAsArestas.size() - 1; i > 0; i-- ){
+                    if (todasAsArestas.get(i).getSourceId() == targetVertice.getId()){
+                        todasAsArestas.remove(i);
+                    }
+                }
+                todosOsVertices.forEach(vertice -> vertice.extractOwnVertices(todasAsArestas));
+            }
+
+        }while (atLeastOneIsNull);
+
+        System.out.println("\n\nTodos os vertices remanejados: \n");
+
+        todosOsVertices.forEach(vertice -> {
+            System.out.println("\nq" + vertice.id + " :");
+            vertice.arestasList.forEach(aresta -> {
+                System.out.println("   q" + vertice.id + " --> q" + aresta.targetId + " == " + aresta.getGramarsString() );
+            });
+        });
+
+        System.out.println("\n\n");
     }
 
 

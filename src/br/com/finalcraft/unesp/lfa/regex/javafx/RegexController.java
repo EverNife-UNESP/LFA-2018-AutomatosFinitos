@@ -183,7 +183,9 @@ public class RegexController implements Initializable {
 
     @FXML
     void onConvertRegexToAf(ActionEvent event) {
+        Validator.loadGraph();
 
+        Validator.removerArestasNulas();
     }
 
 

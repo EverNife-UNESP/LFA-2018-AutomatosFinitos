@@ -30,6 +30,7 @@ public class Aresta {
     }
 
     public String getGramarsString() {
+        if (grammars.isEmpty()) return "Truly Empty";
         StringBuilder stringBuilder = new StringBuilder();
         for (Character character : getGrammars()){
             stringBuilder.append( character + "|");

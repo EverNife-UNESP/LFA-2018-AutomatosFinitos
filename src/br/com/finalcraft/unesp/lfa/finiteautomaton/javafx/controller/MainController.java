@@ -1,6 +1,7 @@
 package br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller;
 
 import br.com.finalcraft.unesp.lfa.finiteautomaton.application.FiniteAutomationApplication;
+import br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller.filemanager.SaverController;
 import br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller.tester.FiniteAutomationTesterController;
 import br.com.finalcraft.unesp.lfa.grammar.javafx.GrammarController;
 import br.com.finalcraft.unesp.lfa.regex.javafx.RegexController;
@@ -71,6 +72,16 @@ public class MainController {
     @FXML
     void openRegex() {
         RegexController.show();
+    }
+
+    @FXML
+    void openSaver() {
+        SaverController.show();
+    }
+
+    @FXML
+    void openImporter() {
+        SaverController.show();
     }
 
     @FXML
