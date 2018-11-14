@@ -2,7 +2,6 @@ package br.com.finalcraft.unesp.lfa.finiteautomaton.application.xml.encapsulatio
 
 import br.com.finalcraft.unesp.lfa.finiteautomaton.application.validator.data.Aresta;
 import br.com.finalcraft.unesp.lfa.finiteautomaton.desenho.Edge;
-import br.com.finalcraft.unesp.lfa.finiteautomaton.desenho.Vertex;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,7 @@
 package br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller;
 
 import br.com.finalcraft.unesp.lfa.finiteautomaton.application.FiniteAutomationApplication;
+import br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller.filemanager.LoaderController;
 import br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller.filemanager.SaverController;
 import br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller.tester.FiniteAutomationTesterController;
 import br.com.finalcraft.unesp.lfa.grammar.javafx.GrammarController;
@@ -81,7 +82,7 @@ public class MainController {
 
     @FXML
     void openImporter() {
-        SaverController.show();
+        LoaderController.show();
     }
 
     @FXML

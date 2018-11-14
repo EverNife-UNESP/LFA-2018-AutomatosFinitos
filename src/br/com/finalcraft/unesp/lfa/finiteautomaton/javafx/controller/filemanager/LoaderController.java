@@ -12,10 +12,10 @@ import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class SaverController {
+public class LoaderController {
 
 
-    private static SaverController instance;
+    private static LoaderController instance;
     private static Stage dialog;
 
     @FXML
@@ -30,7 +30,7 @@ public class SaverController {
         // delivered to any other application window.
         dialog.initOwner(Main.thePrimaryStage);
 
-        Scene newSceneWindow1 = new Scene(MyFXMLs.save_to_file);
+        Scene newSceneWindow1 = new Scene(MyFXMLs.load_from_file);
         dialog.setScene(newSceneWindow1);
     }
 
@@ -41,23 +41,25 @@ public class SaverController {
     @FXML
     private TextField fileName;
 
+
     @FXML
     private Label resultLabel;
 
+
     @FXML
-    void onSaveChanges(ActionEvent event) {
+    void onLoadFile(ActionEvent event) {
         if (!fileName.getText().isEmpty()){
-            if (XMLFileManipulator.saveOnFile(fileName.getText())){
-                resultLabel.setText("Arquivo salvo com sucesso!");
+            if (XMLFileManipulator.readFromXML(fileName.getText())){
+                resultLabel.setText("Arquivo carregado com sucesso!");
                 new Sleeper(){
                     @Override
                     public void andDo() {
                         resultLabel.setText("...");
                         dialog.close();
                     }
-                }.runAfter(0750L);
+                }.runAfter(0050L);
             }else {
-                resultLabel.setText("Erro ao salvar arquivo T.T");
+                resultLabel.setText("Erro ao carregar arquivo T.T");
                 new Sleeper(){
                     @Override
                     public void andDo() {

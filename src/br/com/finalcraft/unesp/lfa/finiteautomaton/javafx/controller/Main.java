@@ -1,5 +1,6 @@
 package br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller;
 
+import br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller.filemanager.LoaderController;
 import br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller.filemanager.SaverController;
 import br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller.states.StateEditorController;
 import br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller.tester.FiniteAutomationTesterController;
@@ -17,8 +18,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-
-import javax.swing.*;
 
 public class Main extends Application {
 
@@ -45,6 +44,7 @@ public class Main extends Application {
         SideOnlyEditTransitionController.setUp();
         FiniteAutomationTesterController.setUp();
         SaverController.setUp();
+        LoaderController.setUp();
     }
 
     private static long currentTime = 0;

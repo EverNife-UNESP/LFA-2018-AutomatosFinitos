@@ -32,6 +32,7 @@ public class Graph {
         edges.clear();
         tempEdges.clear();
         nVertices = 0;
+        runnedONce = false;
         reloadPage();
     }
 
@@ -105,6 +106,12 @@ public class Graph {
 
     public Graph() {
     }
+
+    public Edge getOrCreateEdge(int sourceId, int targetId) {
+        return getOrCreateEdge(getVertex(sourceId),getVertex(targetId));
+
+    }
+
 
     public Edge getOrCreateEdge(Vertex source, Vertex target) {
         for (Edge aEdge : edges){
@@ -221,6 +228,8 @@ public class Graph {
         for (Vertex v : this.vertex) {
             group.getChildren().addAll(v.getCircle(), v.getIdVertex());
             v.repaint();
+            v.idVertex.setLayoutX(v.getCircle().getCenterX() - 8);
+            v.idVertex.setLayoutY(v.getCircle().getCenterY() - 6);
         }
 
         for (Edge edge : edges) {

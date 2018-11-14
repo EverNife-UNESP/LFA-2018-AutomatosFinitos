@@ -18,6 +18,7 @@ public class MyFXMLs {
     public static Parent finiteautomation_tester;
 
     public static Parent save_to_file;
+    public static Parent load_from_file;
 
 
 
@@ -31,6 +32,7 @@ public class MyFXMLs {
             edit_transition_sideonly = FXMLLoader.load(MyFXMLs.class.getResource("/br/com/finalcraft/unesp/lfa/finiteautomaton/javafx/view/sideonly_edit_transition.fxml"));
             finiteautomation_tester = FXMLLoader.load(MyFXMLs.class.getResource("/br/com/finalcraft/unesp/lfa/finiteautomaton/javafx/view/finiteautomation_tester.fxml"));
             save_to_file = FXMLLoader.load(MyFXMLs.class.getResource("/br/com/finalcraft/unesp/lfa/finiteautomaton/javafx/view/save_to_file.fxml"));
+            load_from_file = FXMLLoader.load(MyFXMLs.class.getResource("/br/com/finalcraft/unesp/lfa/finiteautomaton/javafx/view/load_from_file.fxml"));
         }catch (Exception e){
             e.printStackTrace();
         }
