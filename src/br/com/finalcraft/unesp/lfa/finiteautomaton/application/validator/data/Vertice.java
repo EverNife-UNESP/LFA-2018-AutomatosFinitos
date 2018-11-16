@@ -11,10 +11,14 @@ public class Vertice {
     public boolean isInitial = false;
     public boolean isFinale = false;
     public List<Aresta> arestasList = new ArrayList<Aresta>();
+    public List<Aresta> correctFutureArestasList = new ArrayList<Aresta>();
+    public Vertex vertex = null;
+    public String customIdentifier = "";
 
 
+    public boolean alreadyChecked = false;
 
-    private Vertice() {
+    public Vertice() {
     }
 
     public static Vertice encapsulate(Vertex vertex){
@@ -22,6 +26,7 @@ public class Vertice {
         vertice.id = vertex.getID();
         vertice.isInitial = vertex.isInitial();
         vertice.isFinale = vertex.isFinale();
+        vertice.vertex = vertex;
         return vertice;
     }
 
@@ -32,6 +37,15 @@ public class Vertice {
                 this.arestasList.add(aresta);
             }
         }
+    }
+
+    public Vertice cloneVertice(){
+        Vertice newVertice = new Vertice();
+        newVertice.id = this.id;
+        newVertice.isInitial = this.isInitial();
+        newVertice.isFinale = this.isFinale();
+        newVertice.vertex = this.vertex;
+        return newVertice;
     }
 
 
@@ -49,5 +63,9 @@ public class Vertice {
 
     public List<Aresta> getArestasList() {
         return arestasList;
+    }
+
+    public Vertex getVertex() {
+        return vertex;
     }
 }

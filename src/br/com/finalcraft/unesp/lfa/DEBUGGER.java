@@ -10,11 +10,13 @@ public class DEBUGGER {
     public static boolean debug = false;
 
     public static void info(String message){
-        logger.log(Level.INFO, message);
+        System.out.println(message);
+        //logger.log(Level.INFO, message);
     }
 
     public static void debug(String message){
-        if (debug) logger.log(Level.INFO, message);
+        if (debug) System.out.println(message);
+        //if (debug) logger.log(Level.INFO, message);
     }
 
 }

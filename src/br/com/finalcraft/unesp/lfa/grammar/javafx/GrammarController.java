@@ -229,8 +229,8 @@ public class GrammarController {
 
     @FXML
     private void onConvertAfToGrammar(ActionEvent event) {
-        Validator.loadGraph();
         GrammarExpression.getAllExpressions().clear();
+        Validator.loadGraph();
 
 
         Validator.todasAsArestas.forEach(aresta -> {

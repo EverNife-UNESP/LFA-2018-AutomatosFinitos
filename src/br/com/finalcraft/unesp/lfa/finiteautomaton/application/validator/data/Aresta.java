@@ -54,4 +54,14 @@ public class Aresta {
     public String getIdentifier(){
         return "q" + sourceId + " --> q" + targetId;
     }
+
+    public Aresta cloneAresta(){
+        Aresta newAresta = new Aresta(sourceId,targetId);
+        newAresta.getGrammars().addAll(this.getGrammars());
+        return newAresta;
+    }
+
+    public boolean isSameTransaction(Aresta obj) {
+        return ( this.sourceId == obj.sourceId && this.targetId == obj.targetId);
+    }
 }

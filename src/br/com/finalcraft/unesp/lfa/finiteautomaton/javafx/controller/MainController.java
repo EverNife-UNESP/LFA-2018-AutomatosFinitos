@@ -1,6 +1,7 @@
 package br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller;
 
 import br.com.finalcraft.unesp.lfa.finiteautomaton.application.FiniteAutomationApplication;
+import br.com.finalcraft.unesp.lfa.finiteautomaton.application.validator.Validator;
 import br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller.filemanager.LoaderController;
 import br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller.filemanager.SaverController;
 import br.com.finalcraft.unesp.lfa.finiteautomaton.javafx.controller.tester.FiniteAutomationTesterController;
@@ -84,6 +85,23 @@ public class MainController {
     void openImporter() {
         LoaderController.show();
     }
+
+    @FXML
+    void convertAFNDToAFD() {
+        Validator.loadGraph();
+        Validator.removeNullEdges();
+        Validator.convertToAFD();
+    }
+
+    @FXML
+    void removeEmptys() {
+        Validator.loadGraph();
+
+        Validator.removeNullEdges();
+        Validator.loadValidatorToGraph();
+    }
+
+
 
     @FXML
     void onStateChange() {

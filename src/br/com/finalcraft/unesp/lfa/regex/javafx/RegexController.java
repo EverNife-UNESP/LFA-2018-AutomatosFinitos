@@ -183,9 +183,7 @@ public class RegexController implements Initializable {
 
     @FXML
     void onConvertRegexToAf(ActionEvent event) {
-        Validator.loadGraph();
-
-        Validator.removerArestasNulas();
+        System.out.println("Função não implementada... só lamento T.T");
     }
 
 

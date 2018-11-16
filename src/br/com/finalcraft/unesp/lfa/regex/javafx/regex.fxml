@@ -20,7 +20,7 @@
             <Button fx:id="buttoin" layoutX="193.0" layoutY="253.0" mnemonicParsing="false" onAction="#onValidadeButton" text="Validar Expressão" />
             <Label fx:id="validateTextResult" alignment="CENTER" layoutX="42.0" layoutY="287.0" prefHeight="17.0" prefWidth="411.0" text="..." />
             <Button layoutX="41.0" layoutY="319.0" mnemonicParsing="false" onAction="#onConvertAfToRegex" prefHeight="25.0" prefWidth="414.0" text="&gt;&gt; Converter De AF para Regex &gt;&gt;" textFill="#8bb517" />
-            <Button layoutX="41.0" layoutY="344.0" mnemonicParsing="false" onAction="#onConvertRegexToAf" prefHeight="25.0" prefWidth="414.0" text="&lt;&lt; Converter De Regex para AF &lt;&lt;" textFill="#4271c3" />
+            <Button disable="true" layoutX="41.0" layoutY="344.0" mnemonicParsing="false" onAction="#onConvertRegexToAf" opacity="0.32" prefHeight="25.0" prefWidth="414.0" text="&lt;&lt; Converter De Regex para AF &lt;&lt;" textFill="#4271c3" />
          </children>
       </Pane>
    </children>

@@ -83,6 +83,25 @@ public class Graph {
         }
     }
 
+    public Vertex addCustomVertex(int customId){
+        Vertex v = new Vertex();
+        v.setID(customId);
+        if (nVertices <= customId) nVertices = customId + 1;
+        v.setColor(Color.rgb(255, 186, 182, 1));
+        this.vertex.add(v);
+        computeStartPositionVertex(v);
+
+        //Quando for adicionar o primeiro vértice, é necessário criar os grupos e vincular eles ao painel
+        if (runnedONce){
+            Circle circle = v.createCircle();
+            TextFlow idVertex = v.createText();
+            group.getChildren().addAll(circle, idVertex);
+        }else {
+            this.addObjects();
+        }
+        return v;
+    }
+
     public void removeVertex(int id){
         Vertex theVertex = null;
         for (Vertex aVertex : this.vertex){

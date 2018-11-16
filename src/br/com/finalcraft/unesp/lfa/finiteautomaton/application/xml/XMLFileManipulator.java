@@ -77,7 +77,7 @@ public class XMLFileManipulator {
 
                     Element eElement = (Element) nNode;
 
-                    String iD = eElement.getAttribute("id");
+                    int iD = Integer.valueOf(eElement.getAttribute("id"));
                     String name = eElement.getAttribute("name");
                     float xCoord = Float.valueOf(eElement.getElementsByTagName("x").item(0).getTextContent());
                     float yCoord = Float.valueOf(eElement.getElementsByTagName("y").item(0).getTextContent());
@@ -92,8 +92,8 @@ public class XMLFileManipulator {
                     System.out.println("Vertex isFinal : " + isFinal);
                     System.out.println("Vertex isInitial : " + isInitial);
 
-                    FiniteAutomationApplication.getGraph().addVertex();
-                    Vertex vertex = FiniteAutomationApplication.getGraph().getVertex(temp);
+                    FiniteAutomationApplication.getGraph().addCustomVertex(iD);
+                    Vertex vertex = FiniteAutomationApplication.getGraph().getVertex(iD);
 
                     vertex.getCircle().setCenterX(xCoord);
                     vertex.getCircle().setCenterY(yCoord);
@@ -114,6 +114,10 @@ public class XMLFileManipulator {
                     int sourceId = Integer.parseInt(eElement.getElementsByTagName("from").item(0).getTextContent());
                     int targetId = Integer.parseInt(eElement.getElementsByTagName("to").item(0).getTextContent());
                     char value = eElement.getElementsByTagName("read").item(0).getTextContent().charAt(0);
+
+                    System.out.println("Transition sourceId : " + sourceId);
+                    System.out.println("Vertex targetId : " + targetId);
+                    System.out.println("Vertex value : " + value);
 
                     Vertex sourceVertex = FiniteAutomationApplication.getGraph().getVertex(sourceId);
                     Vertex targetVertex = FiniteAutomationApplication.getGraph().getVertex(targetId);
