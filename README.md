@@ -8,4 +8,7 @@ Tem como principais caracteristicas a utilização de JavaFX para a criação de
 Programa usado para editar o JavaFX foi o SceneBuilder.
 Programa compilado com o IntelijIDEA.
 
+
+Manual de Instruções https://github.com/evernife/LFA-2018-AutomatosFinitos/blob/master/FiniteAutomation_Project_Instructions.pdf
+
 ----- Todos os direitos reservados! -----
